@@ -22,26 +22,39 @@
         }
     </style>
     <meta name="description" content="Découvrez le top en matière de portfolio!">
+  <script src="https://unpkg.com/alpinejs" defer></script>
 </head>
 <body class="bg-gradient-to-br from-purple-50 to-pink-50">
     <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-lg z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Portfolio.com
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#" class="hover:text-purple-600 transition-colors">Accueil</a>
-                    <a href="#" class="hover:text-purple-600 transition-colors">Projets</a>
-                    <a href="#" class="hover:text-purple-600 transition-colors">Compétences</a>
-                    <a href="#contact" class="hover:text-purple-600 transition-colors">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <i class="fas fa-bars text-2xl"></i>
-                </div>
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Portfolio.com
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-purple-600 transition-colors">Accueil</a>
+                <a href="#" class="hover:text-purple-600 transition-colors">Projets</a>
+                <a href="#" class="hover:text-purple-600 transition-colors">Compétences</a>
+                <a href="#contact" class="hover:text-purple-600 transition-colors">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <i class="fas fa-bars text-2xl" id="menu-toggle"></i>
             </div>
         </div>
-    </nav>
+        <div id="mobile-menu" class="hidden flex-col space-y-4 mt-4 md:hidden">
+            <a href="#" class="block hover:text-purple-600 transition-colors">Accueil</a>
+            <a href="#" class="block hover:text-purple-600 transition-colors">Projets</a>
+            <a href="#" class="block hover:text-purple-600 transition-colors">Compétences</a>
+            <a href="#contact" class="block hover:text-purple-600 transition-colors">Contact</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</nav>
 
     <section id="home" class="min-h-screen flex items-center pt-20 bg-gradient-to-b from-purple-50 to-white">
     <div class="container mx-auto px-6">
@@ -85,9 +98,9 @@
                     <div class="flex items-center gap-2">
                         <span class="text-sm text-gray-500">Technologies favorites:</span>
                         <div class="flex gap-2">
-                            <img src="https://fakeimg.pl/30x30" alt="React" class="w-8 h-8 rounded-full shadow-sm" title="React">
-                            <img src="https://fakeimg.pl/30x30" alt="Node.js" class="w-8 h-8 rounded-full shadow-sm" title="Node.js">
-                            <img src="https://fakeimg.pl/30x30" alt="TypeScript" class="w-8 h-8 rounded-full shadow-sm" title="TypeScript">
+                            <img src="https://images.unsplash.com/photo-1706426629246-2a3c3e3e3ff2?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwzfHxnb29nbGV8ZW58MHwyfHx8MTczMzgxODYyMnww&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="React" class="w-8 h-8 rounded-full shadow-sm" title="React">
+                            <img src="https://codyzfile.s3.eu-west-3.amazonaws.com/votKQJ3SZm/images/64868a73ec2c08c6.jpeg" alt="Node.js" class="w-8 h-8 rounded-full shadow-sm" title="Node.js">
+                            <img src="https://codyzfile.s3.eu-west-3.amazonaws.com/votKQJ3SZm/images/6cfb0e1409c30804.jpeg" alt="TypeScript" class="w-8 h-8 rounded-full shadow-sm" title="TypeScript">
                         </div>
                     </div>
                 </div>
@@ -102,6 +115,70 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section><section x-data="{ currentSlide: 0, slides: [0, 1, 2, 3] }" class="relative p-2 w-full mx-auto overflow-hidden bg-gray-100 rounded-xl shadow-2xl">
+    <div class="relative h-[600px]">
+        <div x-show="currentSlide === 0" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-x-0" x-transition:leave-end="opacity-0 transform -translate-x-full" class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1558978806-73073843b15e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHw5fHxpbm5vdmF0aW9ufGVufDB8MHx8fDE3MzM4MTg0NTh8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Slide 1" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
+                <div class="px-16">
+                    <h2 class="text-4xl font-bold text-white mb-4">Innovation Design</h2>
+                    <p class="text-xl text-gray-200 mb-8">Discover our latest collection of innovative designs</p>
+                    <button class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="currentSlide === 1" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-x-0" x-transition:leave-end="opacity-0 transform -translate-x-full" class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxfHxzb2x1dGlvbnxlbnwwfDB8fHwxNzMzODE4NTI5fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Slide 2" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
+                <div class="px-16">
+                    <h2 class="text-4xl font-bold text-white mb-4">Creative Solutions</h2>
+                    <p class="text-xl text-gray-200 mb-8">Transform your ideas into reality</p>
+                    <button class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Explore</button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="currentSlide === 2" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-x-0" x-transition:leave-end="opacity-0 transform -translate-x-full" class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1636109538812-ae5393be4d8e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHw2fHxxdWFsaXR5fGVufDB8MHx8fDE3MzM4MTg1Mzd8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Slide 3" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
+                <div class="px-16">
+                    <h2 class="text-4xl font-bold text-white mb-4">Premium Quality</h2>
+                    <p class="text-xl text-gray-200 mb-8">Experience excellence in every detail</p>
+                    <button class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Discover</button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="currentSlide === 3" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-x-0" x-transition:leave-end="opacity-0 transform -translate-x-full" class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxfHxjcmFmdHxlbnwwfDB8fHwxNzMzODE4NTYxfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Slide 4" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
+                <div class="px-16">
+                    <h2 class="text-4xl font-bold text-white mb-4">Expert Craftsmanship</h2>
+                    <p class="text-xl text-gray-200 mb-8">Built with precision and care</p>
+                    <button class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/50 to-transparent">
+        <div class="flex justify-between items-center px-8 py-4">
+            <button @click="currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1" class="text-white hover:text-gray-300 transition">
+                <i class="fa fa-chevron-left text-2xl"></i>
+            </button>
+
+            <div class="flex space-x-2">
+                <template x-for="(slide, index) in slides" :key="index">
+                    <button @click="currentSlide = index" :class="{'bg-white': currentSlide === index, 'bg-gray-400': currentSlide !== index}" class="w-3 h-3 rounded-full transition-all duration-300"></button>
+                </template>
+            </div>
+
+            <button @click="currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1" class="text-white hover:text-gray-300 transition">
+                <i class="fa fa-chevron-right text-2xl"></i>
+            </button>
         </div>
     </div>
 </section>
